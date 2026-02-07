@@ -20,6 +20,7 @@
 import hardylab from '#/pages/images/hardylab.png'
 import umass from '#/pages/images/umass.png'
 import usda from '#/pages/images/usda.png'
+import dpi from '#/pages/images/FDACS_DPI_Icon_40p.png'
 
 const links = [
   {
