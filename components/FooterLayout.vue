@@ -40,7 +40,7 @@ const links = [
     alt: 'link to UMass Amherst Biology Home',
     url: 'http://hardylab.skullisland.info/',
     title: 'UMass Amherst Biology Home'
-  }
+  },
   {
     img: dpi,
     alt: 'link to Florida Department of Agriculture and Consumer Services home',
