@@ -31,7 +31,7 @@ const links = [
   },
   {
     img: hardylab,
-    alt: 'link to Hard Lab Home',
+    alt: 'link to Hardy Lab Home',
     url: 'http://hardylab.skullisland.info/',
     title: 'Hardy Lab Home'
   },
@@ -40,6 +40,12 @@ const links = [
     alt: 'link to UMass Amherst Biology Home',
     url: 'http://hardylab.skullisland.info/',
     title: 'UMass Amherst Biology Home'
+  }
+  {
+    img: dpi,
+    alt: 'link to Florida Department of Agriculture and Consumer Services home',
+    url: 'https://www.fdacs.gov/',
+    title: 'Florida Department of Agriculture and Consumer Services home'
   }
 ]
 </script>
