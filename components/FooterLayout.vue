@@ -37,9 +37,9 @@ const links = [
   },
   {
     img: umass,
-    alt: 'link to UMass Amherst Biology Home',
-    url: 'http://hardylab.skullisland.info/',
-    title: 'UMass Amherst Biology Home'
+    alt: 'link to UMass Amherst OEB Home',
+    url: 'https://www.umass.edu/organismic-evolutionary/',
+    title: 'UMass Amherst Organismic and Evolutionary Biology Home'
   },
   {
     img: dpi,
