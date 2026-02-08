@@ -13,3 +13,6 @@ header_links:
 
   - label: Author
     link: /author
+
+  - label: Common name
+    link: /common_name
