@@ -11,3 +11,4 @@ taxa_page:
           - panel:descendants
           - panel:content
           - panel:keys
+          - panel: test
