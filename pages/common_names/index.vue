@@ -19,6 +19,7 @@
             <VButton
               primary
               @click="loadSearchPage"
+              :disabled="!commonName.trim()"
             >
               Search
             </VButton>
@@ -44,6 +45,10 @@ const router = useRouter()
 const commonName = ref('')
 
 function loadSearchPage() {
+  if (!commonName.value.trim()) {
+    return
+  }
+
   router.push({
     path: '/common_names/search',
     query: {
