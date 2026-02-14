@@ -5,7 +5,7 @@
       <div class="flex flex-col justify-center px-4">
         <!-- No results message -->
         <div v-if="!isLoading && list.length === 0" class="text-center">
-          <p class="text-lg">No scales found to be associated with the common name"{{ route.query.name }}"</p>
+          <p class="text-lg">No scales found to be associated with the common name "{{ route.query.name }}"</p>
         </div>
         
         <!-- Results list -->
