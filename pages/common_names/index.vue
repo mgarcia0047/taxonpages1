@@ -13,7 +13,7 @@
               class="scalenet-input"
               type="text"
               placeholder="Search by common name..."
-              v-model="common_name"
+              v-model="commonName"
               @keypress.enter="loadSearchPage"
             />
             <VButton
@@ -41,13 +41,13 @@ import { useRouter } from 'vue-router'
 import ScaleLogo from '../images/SN-logo-400.png'
 
 const router = useRouter()
-const common_name = ref('')
+const commonName = ref('')
 
 function loadSearchPage() {
   router.push({
-    path: '/common_name/search',
+    path: '/common_names/search',
     query: {
-      common_name: common_name.value
+      common_name: commonName.value
     }
   })
 }
