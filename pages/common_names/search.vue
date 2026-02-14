@@ -47,16 +47,18 @@ async function loadCommonNames(params) {
   isLoading.value = true
   
   try {
-    // Call TaxonWorks API for common names
-    // This will create URL like: /common_names?name=putnam
+    // Get all common names from API
     const response = await makeAPIRequest.get('/common_names', { 
       params: {
-        name: params.name
+        per: 500  // Get up to 500 results
       }
     })
     
-    // Store the results
-    list.value = response.data
+    // Filter results on the client side to match search term
+    const searchTerm = params.name.toLowerCase()
+    list.value = response.data.filter(item => 
+      item.name && item.name.toLowerCase().includes(searchTerm)
+    )
     
     // Sort alphabetically by name
     if (list.value.length) {
@@ -72,4 +74,3 @@ async function loadCommonNames(params) {
     isLoading.value = false
   }
 }
-</script>
