@@ -1,30 +1,28 @@
 <template>
-  <section class="h-full bg-base-foreground">
+  <section class="bg-base-foreground h-full">
     <VSpinner v-if="isLoading" />
-    <div class="container mx-auto py-12">
-      <template v-if="pagination">
-        <h1 class="text-xl mb-4">{{ pagination.total }} OTUs found</h1>
-        <VPagination
-          :total="pagination.total"
-          :per="pagination.per"
-          v-model="pagination.page"
-          @update:modelValue="
-            (page) => loadOtus({ page, dwc_occurrence_query: dwcParams })
-          "
-        />
-      </template>
-      <ul class="list-disc pl-4">
-        <li
-          v-for="item in list"
-          :key="item.id"
-          class="my-2"
-        >
-          <RouterLink
-            :to="`/otus/${item.id}`"
-            v-html="item.object_tag"
-          />
-        </li>
-      </ul>
+    <div class="mx-auto container py-12">
+      <div class="flex flex-col justify-center px-4">
+        <!-- No results message -->
+        <div v-if="!isLoading && list.length === 0" class="text-center">
+          <p class="text-lg">No common names found for "{{ route.query.name }}"</p>
+        </div>
+        
+        <!-- Results list -->
+        <div v-else-if="!isLoading">
+          <h2 class="text-xl mb-4">{{ list.length }} common name(s) found</h2>
+          <ul class="list-disc pl-4">
+            <li
+              v-for="item in list"
+              :key="item.id"
+              class="my-2"
+            >
+              <strong>{{ item.name }}</strong>
+              <span v-if="item.otu_name"> - {{ item.otu_name }}</span>
+            </li>
+          </ul>
+        </div>
+      </div>
     </div>
   </section>
 </template>
@@ -33,32 +31,44 @@
 import { ref, onMounted } from 'vue'
 import { useRoute } from 'vue-router'
 import { makeAPIRequest } from '@/utils'
-import { makePagination } from '#/pages/utils'
 
 const route = useRoute()
-const list = ref([])
 const isLoading = ref(false)
-const pagination = ref()
-const { page, per, ...dwcParams } = route.query
+const list = ref([])
 
 onMounted(() => {
-  loadOtus({
-    page: page || 1,
-    dwc_occurrence_query: dwcParams
-  })
+  const params = {
+    name: route.query.name,  // The search term from URL
+    page: 1,
+  }
+  loadCommonNames(params)
 })
 
-async function loadOtus(params) {
+async function loadCommonNames(params) {
   isLoading.value = true
-
-  makeAPIRequest
-    .get('/otus', { params })
-    .then((response) => {
-      list.value = response.data
-      pagination.value = makePagination(response.headers)
+  
+  try {
+    // Call TaxonWorks API for common names
+    // This will create URL like: /common_names?name=putnam&page=1&per=500
+    const response = await makeAPIRequest.get('/common_names', { 
+      params: params
     })
-    .finally(() => {
-      isLoading.value = false
-    })
+    
+    // Store the results
+    list.value = response.data
+    
+    // Sort alphabetically by name
+    if (list.value.length) {
+      list.value.sort((a, b) => 
+        a.name.toLowerCase().localeCompare(b.name.toLowerCase())
+      )
+    }
+    
+  } catch (error) {
+    console.error('Error loading common names:', error)
+    list.value = []
+  } finally {
+    isLoading.value = false
+  }
 }
 </script>
