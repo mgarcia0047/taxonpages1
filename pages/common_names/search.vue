@@ -74,3 +74,4 @@ async function loadCommonNames(params) {
     isLoading.value = false
   }
 }
+</script>
