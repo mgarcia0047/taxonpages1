@@ -41,7 +41,7 @@ import { useRouter } from 'vue-router'
 import ScaleLogo from '../images/SN-logo-400.png'
 
 const router = useRouter()
-const author = ref('')
+const common_name = ref('')
 
 function loadSearchPage() {
   router.push({
