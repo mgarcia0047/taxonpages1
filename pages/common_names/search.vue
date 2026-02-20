@@ -19,6 +19,7 @@
             >
               <strong>{{ item.name }}</strong>
               <span v-if="item.otu_name"> - {{ item.otu_name }}</span>
+              <span v-if="item.otu_id"> - {{ item.otu_id }}</span>
             </li>
           </ul>
         </div>
