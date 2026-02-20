@@ -20,6 +20,10 @@
               <strong>{{ item.name }}</strong>
               <span v-if="item.otu_name"> - {{ item.otu_name }}</span>
               <span v-if="item.otu_id"> - {{ item.otu_id }}</span>
+              <RouterLink
+            :to="`/otus/${item.id}`"
+            v-html="item.otu_id"
+          />
             </li>
           </ul>
         </div>
