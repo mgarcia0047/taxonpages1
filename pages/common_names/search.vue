@@ -26,7 +26,6 @@
                 v-html="item.otu_id.object_tag"
               />
 
-              </span>
               
             </li>
           </ul>
