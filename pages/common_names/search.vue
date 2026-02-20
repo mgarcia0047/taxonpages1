@@ -23,7 +23,7 @@
               <!-- make otu id a hyperlink -->
               <RouterLink
                 :to="`/otus/${item.otu_id}`"
-                v-html="item.otu_id.object_tag"
+                v-html="item.otu_id"
               />
 
               
