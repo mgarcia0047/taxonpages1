@@ -55,11 +55,12 @@ async function loadCommonNames(params) {
   isLoading.value = true
   
   try {
-    // Call TaxonWorks API for common names
-    // This will create URL like: /common_names?name=putnam
+    // Call TaxonWorks API for common names with extend command to pull associated otu information
+    // This will create URL like: /common_names?name=putnam&extend[]=otu
     const response = await makeAPIRequest.get('/common_names', { 
       params: {
-        name: params.name
+        name: params.name,
+        extend: ['otu']
       }
     })
     
