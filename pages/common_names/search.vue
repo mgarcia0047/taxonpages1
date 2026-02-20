@@ -17,14 +17,16 @@
               :key="item.id"
               class="my-2"
             >
-              <strong>{{ item.name }}</strong>
-              <span v-if="item.otu_name"> - {{ item.otu_name }}</span>
+              <strong>{{ item.name }}</strong> -
+    
               
               <!-- make otu id a hyperlink -->
               <RouterLink
-                :to="`/otus/${item.otu_id.object_tag}`"
-                v-html="item.otu_id"
+                :to="`/otus/${item.otu_id}`"
+                v-html="item.otu_id.object_tag"
               />
+
+              </span>
               
             </li>
           </ul>
