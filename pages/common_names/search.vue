@@ -23,7 +23,7 @@
               <!-- make otu id a hyperlink -->
               <RouterLink
                 :to="`/otus/${item.otu_id}`"
-                v-html="item.otu_id"
+                v-html="item.otu.object_tag"
               />
 
               
@@ -60,7 +60,7 @@ async function loadCommonNames(params) {
     const response = await makeAPIRequest.get('/common_names', { 
       params: {
         name: params.name,
-        extend: ['otu']
+        extend: ['otu','otu.taxon_name']
       }
     })
     
