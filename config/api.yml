@@ -1,5 +1,9 @@
 ---
+##api information for sandbox version
 #url: https://sandbox.taxonworks.org/api/v1
+#project_token: 7wscPcC7TbXT--Xk2yw3CQ
+
+##api information for sanpaper version
 url: https://sandpaper.taxonworks.org/api/v1
-#project_token: 3oerVKf82_196cIECvHYNg
-project_token: 7wscPcC7TbXT--Xk2yw3CQ
+project_token: EOrl1Jire5E6liI7g9a4uA
+
