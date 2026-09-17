@@ -16,3 +16,6 @@ header_links:
 
   - label: Common names
     link: /common_names
+
+  -label: Flat Cat
+   link: /fatcat
