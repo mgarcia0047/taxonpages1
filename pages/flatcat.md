@@ -13,6 +13,6 @@ const files = [
 
 <ul>
   <li v-for="file in files" :key="file.path">
-    <a :href="`${base}${file.path}`" target="_blank">{{ file.name }}</a>
+    <a :href="`${base}${file.path}`" target="_blank">{{ aclerdidae.html }}</a>
   </li>
 </ul>
