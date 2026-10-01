@@ -60,7 +60,7 @@ async function loadCommonNames(params) {
     const response = await makeAPIRequest.get('/common_names', { 
       params: {
         name: params.name,
-        extend: ['otu','otu.taxon_name']
+        extend: ['otu','otu.taxon_name','citations']
       }
     })
     
