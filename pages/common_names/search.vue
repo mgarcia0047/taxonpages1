@@ -29,7 +29,7 @@
               <!-- citations: one or more, each links to the (future) references page -->
               <span v-if="item.citations && item.citations.length">
                 [<template v-for="(citation, index) in item.citations" :key="citation.id">
-                  <RouterLink :to="`/references/${citation.source_id}`">{{ citation.citation_source_body }}</RouterLink><span v-if="index < item.citations.length - 1">; </span>
+                  <RouterLink :to="`/references/${citation.source_id}`">{{ citation.citation_source_body }}</RouterLink><span v-if="index < item.citations.length - 1"> | </span>
                 </template>]
               </span>
 
