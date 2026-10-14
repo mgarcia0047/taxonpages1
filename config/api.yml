@@ -4,6 +4,10 @@
 #project_token: 7wscPcC7TbXT--Xk2yw3CQ
 
 ##api information for sanpaper version
+#url: https://sandpaper.taxonworks.org/api/v1
+#project_token: R5t_zyuGAXt9yPCr6egCKA
+
+##api information for production version
 url: https://sfg.taxonworks.org/api/v1
-project_token: R5t_zyuGAXt9yPCr6egCKA
+project_token: x_U1vay_beIUfztFNpck3w
 
